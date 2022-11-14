@@ -1,0 +1,66 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "#tileset_school": {
+            "scaleInDock": 1
+        },
+        "tile_map.json": {
+            "scale": 0.57,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 263.1578947368421,
+                "y": 271.92982456140356
+            }
+        },
+        "tile_map.json#school_tileset_by_aveontrainer_ddpy71z": {
+            "scaleInDock": 1
+        },
+        "tile_test.json": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 935.3333333333333,
+                "y": 392
+            }
+        },
+        "tile_test.json#overview": {
+            "scaleInDock": 1
+        },
+        "tile_test.json#tilesets": {
+            "scaleInDock": 1
+        },
+        "tiles_map.json": {
+            "scale": 0.33,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 631.8181818181819,
+                "y": 478.78787878787875
+            }
+        },
+        "tiles_map.json#tileset_school": {
+            "scaleInDock": 1
+        }
+    },
+    "last.imagePath": "/Users/eomseung-yeol/Desktop/Study/phaser-tutorial-prac/resource/images",
+    "map.height": 25,
+    "map.lastUsedFormat": "json",
+    "map.layerDataFormat": null,
+    "map.width": 40,
+    "openFiles": [
+        "tiles_map.json"
+    ],
+    "project": "tilesets.tiled-project",
+    "recentFiles": [
+        "tiles_map.json",
+        "tile_map.json",
+        "tile_test.json"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.useTransparentColor": true
+}
