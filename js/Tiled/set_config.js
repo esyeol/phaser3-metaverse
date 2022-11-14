@@ -5,9 +5,9 @@ import tile_map from "./tile_map.js";
  * phaser 엔진을 그릴 영역 설정 & matter physics 엔진 적용. 
  */
 const config = {
-    width:512,
-    height:512,
-    backgroundColor :"#333333",
+    width:1280,
+    height:800,
+    backgroundColor :"#999999",
     type:Phaser.AUTO,
     parent:'phaser-tutorial-prac',
     scene:[tile_map],
