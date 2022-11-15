@@ -1,0 +1,9 @@
+/// <reference types="./matter" />
+/**
+ * Get the root body of a compound Matter body.
+ */
+export declare function getRootBody(body: MatterJS.BodyType): MatterJS.BodyType;
+/**
+ * @param obj
+ */
+export declare function warnInvalidObject(obj: any): void;
