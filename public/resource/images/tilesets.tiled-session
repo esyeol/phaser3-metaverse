@@ -1,0 +1,117 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "square_map.json",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "모든 파일 (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "#estheria_city_by_raymondmaverick_dbha613": {
+            "scaleInDock": 1
+        },
+        "#hs-map": {
+            "scaleInDock": 1
+        },
+        "#tileset_school": {
+            "scaleInDock": 1
+        },
+        "hs_maps.json": {
+            "scale": 0.5276,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 643.4799090219864,
+                "y": 391.3949962092495
+            }
+        },
+        "hs_maps.json#hs-map": {
+            "scaleInDock": 1
+        },
+        "map_test.json": {
+            "scale": 0.6012,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 642.8809048569527,
+                "y": 400.03326679973384
+            }
+        },
+        "map_test.json#estheria_city_by_raymondmaverick_dbha613": {
+            "scaleInDock": 0.7513
+        },
+        "map_test.json#hs-map": {
+            "scaleInDock": 1
+        },
+        "square_map.json": {
+            "scale": 0.7368,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 882.1932681867535,
+                "y": 328.4473398479913
+            }
+        },
+        "square_map.json#hs-map": {
+            "scaleInDock": 1.2828
+        },
+        "tile_map.json": {
+            "scale": 0.57,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 263.1578947368421,
+                "y": 271.92982456140356
+            }
+        },
+        "tile_map.json#school_tileset_by_aveontrainer_ddpy71z": {
+            "scaleInDock": 1
+        },
+        "tile_test.json": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 935.3333333333333,
+                "y": 392
+            }
+        },
+        "tile_test.json#overview": {
+            "scaleInDock": 1
+        },
+        "tile_test.json#tilesets": {
+            "scaleInDock": 1
+        },
+        "tiles_map.json": {
+            "scale": 0.39,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 596.1538461538461,
+                "y": 428.20512820512806
+            }
+        },
+        "tiles_map.json#tileset_school": {
+            "scaleInDock": 1.049
+        }
+    },
+    "last.imagePath": "/Users/eomseung-yeol/Desktop/Study/phaser-tutorial-prac/resource/images",
+    "map.height": 42,
+    "map.lastUsedFormat": "json",
+    "map.layerDataFormat": null,
+    "map.width": 60,
+    "openFiles": [
+        "square_map.json"
+    ],
+    "project": "tilesets.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "square_map.json",
+        "hs_maps.json",
+        "map_test.json",
+        "tiles_map.json",
+        "tile_map.json",
+        "tile_test.json"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.useTransparentColor": true
+}

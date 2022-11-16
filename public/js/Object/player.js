@@ -3,6 +3,17 @@ export default class player extends Phaser.Physics.Matter.Sprite{
         let{scene,x,y,texture,frame}=data;
         super(scene.matter.world,x,y,texture,frame);
         this.scene.add.existing(this);
+
+        const {Body,Bodies} =Phaser.Physics.Matter.Matter;
+        var playerCollider = Bodies.circle(this.x,this.y,12,{isSensor:false,label:'playerCollider'});
+        var playerSensor = Bodies.circle(this.x,this.y,24,{isSensor:true, label:'playerSensor'});
+        const compoundBody = Body.create({
+            parts:[playerCollider,playerSensor],
+            frictionAir : 0.35,
+        });
+        this.setExistingBody(compoundBody)
+
+
     }
     static preload(scene){
         scene.load.atlas('obj_man','resource/images/obj_man.png','resource/images/obj_man_atlas.json');
@@ -18,7 +29,7 @@ export default class player extends Phaser.Physics.Matter.Sprite{
     update(){
         console.log("update");
         // this.anims.play('man_idle',true); // 애니메이션 설정. 
-        const speed = 2.2; // canvas 내부 object의 속도 조정. 
+        const speed = 5.5; // canvas 내부 object의 속도 조정. 
         let playerVelocity = new Phaser.Math.Vector2(); // 2D 공간에서 백터 표현을 위한 phaser 자체 클래스 ver3,4 까지 있음. 
         if(this.inputKeys.left.isDown){
             playerVelocity.x = -1;

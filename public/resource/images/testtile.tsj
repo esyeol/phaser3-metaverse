@@ -1,0 +1,14 @@
+{ "columns":34,
+ "image":"..\/..\/..\/..\/..\/..\/Downloads\/keltios_map___route_2___celebian_valley_by_anarlaurendil_den9gn8.png",
+ "imageheight":2112,
+ "imagewidth":1088,
+ "margin":0,
+ "name":"keltios_map___route_2___celebian_valley_by_anarlaurendil_den9gn8",
+ "spacing":0,
+ "tilecount":2244,
+ "tiledversion":"1.9.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.9"
+}

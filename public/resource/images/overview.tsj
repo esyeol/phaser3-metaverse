@@ -1,0 +1,14 @@
+{ "columns":58,
+ "image":"..\/..\/..\/..\/..\/..\/Downloads\/Modern tiles_Free\/overview.png",
+ "imageheight":1792,
+ "imagewidth":1886,
+ "margin":0,
+ "name":"overview",
+ "spacing":0,
+ "tilecount":3248,
+ "tiledversion":"1.9.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.9"
+}

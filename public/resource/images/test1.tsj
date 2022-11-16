@@ -1,0 +1,14 @@
+{ "columns":30,
+ "image":"..\/..\/..\/..\/..\/..\/Downloads\/zksfff.jpeg",
+ "imageheight":815,
+ "imagewidth":981,
+ "margin":0,
+ "name":"zksfff",
+ "spacing":0,
+ "tilecount":750,
+ "tiledversion":"1.9.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.9"
+}

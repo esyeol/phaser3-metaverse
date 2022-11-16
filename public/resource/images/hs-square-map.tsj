@@ -1,0 +1,14 @@
+{ "columns":47,
+ "image":"..\/..\/..\/..\/..\/..\/Downloads\/ferri___map_of_pokemon_steam_by_anarlaurendil_dds4d7u.png",
+ "imageheight":1120,
+ "imagewidth":1520,
+ "margin":0,
+ "name":"hs-square-map",
+ "spacing":0,
+ "tilecount":1645,
+ "tiledversion":"1.9.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.9"
+}
