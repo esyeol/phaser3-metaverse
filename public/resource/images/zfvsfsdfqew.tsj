@@ -1,0 +1,14 @@
+{ "columns":14,
+ "image":"..\/..\/..\/..\/..\/..\/Downloads\/zfvs.png",
+ "imageheight":272,
+ "imagewidth":464,
+ "margin":0,
+ "name":"zfvsfsdfqew",
+ "spacing":0,
+ "tilecount":112,
+ "tiledversion":"1.9.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.9"
+}
