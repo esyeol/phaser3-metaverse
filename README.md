@@ -2,10 +2,12 @@
  
 > Run  
 <pre>
-& git clone https://github.com/eomssy/phaser-tutorial-prac.git
-& cd phaser-tutorial-prac
-& node index.js
+git clone https://github.com/eomssy/phaser-tutorial-prac.git
+cd phaser-tutorial-prac
+node index.js
 </pre>
+
+<br>
 
 > Exit 
 <pre> 
