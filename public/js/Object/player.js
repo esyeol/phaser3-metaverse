@@ -1,3 +1,7 @@
+/*
+ * player 클래스를 모듈화하여 내보낸다는 의미. => 다른 js 파일에서 import 해서 가져와 사용할 수 있음.
+ * 추후 소켓을 이용해 멀티스레드 환경에서 player object 들이 움직여야 하기에 다음과 같이 구상.
+ * */ 
 export default class player extends Phaser.Physics.Matter.Sprite{
     constructor(data){
         let{scene,x,y,texture,frame}=data;
@@ -6,10 +10,10 @@ export default class player extends Phaser.Physics.Matter.Sprite{
 
         const {Body,Bodies} =Phaser.Physics.Matter.Matter;
         var playerCollider = Bodies.circle(this.x,this.y,12,{isSensor:false,label:'playerCollider'});
-        var playerSensor = Bodies.circle(this.x,this.y,24,{isSensor:true, label:'playerSensor'});
+        var playerSensor = Bodies.circle(this.x,this.y,20,{isSensor:true, label:'playerSensor'});
         const compoundBody = Body.create({
             parts:[playerCollider,playerSensor],
-            frictionAir : 0.35,
+            frictionAir : 0.6,
         });
         this.setExistingBody(compoundBody)
 

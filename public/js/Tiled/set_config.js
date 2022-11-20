@@ -5,12 +5,12 @@ import tile_map from "./tile_map.js";
  * phaser 엔진을 그릴 영역 설정 & matter physics 엔진 적용. 
  */
 const config = {
-    width:1280,
+    width:1200,
     height:800,
     backgroundColor :"#999999",
     type:Phaser.AUTO,
-    parent:'phaser-tutorial-prac',
-    scene:[tile_map],
+    parent:'phaser-tutorial-prac', 
+    scene:[tile_map], // define preload,create,update.
     scale:{
         zoom:2,
     },
@@ -19,13 +19,13 @@ const config = {
         default:'matter', // aracde -> matter dafault 물리엔진 변경. 
         matter:{
             debug:true,
-            gravity:{y:0},
+            gravity:{y:0}, // x,y 축으로 자동으로 이동
         }
     },
     plugins:{
         scene:[
             {
-                plugin: PhaserMatterCollisionPlugin.default,
+                plugin: PhaserMatterCollisionPlugin.default, 
                 key: 'matterCollision',
                 mapping: 'matterCollision'
             }
