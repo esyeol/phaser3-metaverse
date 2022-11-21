@@ -2,40 +2,8 @@ export default class players {
     
     constructor(scene,x,y){
         this.scene=scene;
-        
-
-        //create animation
-        const anims = this.scene.anims;
-         // 상하좌우 멈출 경우 설정
-        //  anims.create({
-        //     key: 'down-stop',
-        //     frames: anims.generateFrameNumbers('player', { frames : [0]}),
-        //     frameRate: 3,
-        //     repeat: -1
-        // });
-
-        // anims.create({
-        //     key: 'left-stop',
-        //     frames: anims.generateFrameNumbers('player', { frames : [4]}),
-        //     frameRate: 3,
-        //     repeat: -1
-        // });
-
-        // anims.create({
-        //     key: 'right-stop',
-        //     frames: anims.generateFrameNumbers('player', { frames : [8]}),
-        //     frameRate: 3,
-        //     repeat: -1
-        // });
-
-        // anims.create({
-        //     key: 'up-stop',
-        //     frames: anims.generateFrameNumbers('player', { frames : [12]}),
-        //     frameRate: 3,
-        //     repeat: -1
-        // });
-
-
+ 
+        const anims = this.scene.anims; 
         // 이벤트 설정
         anims.create({
 			key: 'down',
@@ -90,28 +58,24 @@ export default class players {
 		{
             sprite.body.setVelocityX(-speed);
             sprite.body.setVelocityY(0);
-            // sprite.setFlipX(true);
-            // sprite.anims.play('left', true);
 		}
 		else if (keys.right.isDown)
 		{
             sprite.body.setVelocityX(speed);
             sprite.setFlipX(false);
-            sprite.setVelocityY(0);
-			// sprite.anims.play('right', true);
+            // sprite.setVelocityY(0);
 		}
 
         if(keys.up.isDown)
 		{
             sprite.body.setVelocityY(-speed);
             sprite.setVelocityX(0);
-            // sprite.anims.play('up', true)	
+         	
         } 
         else if(keys.down.isDown){
             sprite.body.setVelocityY(speed);
             sprite.body.setVelocityX(0);            
-            // sprite.anims.play('down', true)
-          
+                   
         }
 
         sprite.body.velocity.normalize().scale(speed);
@@ -131,22 +95,6 @@ export default class players {
                if (prevVelocity.y < 0) sprite.setTexture("player", 0);
                else sprite.setTexture("player", 46);
         } 
-        
-        
-		// else{
-        //     sprite.setVelocityX(0);
-        //     sprite.setVelocityY(0);
-
-        //     if(status == "down"){
-        //         sprite.anims.play('down-stop', true)
-        //     } else if(status == "left"){
-        //         sprite.anims.play('left-stop', true)
-        //     } else if(status == "right"){
-        //         sprite.anims.play('right-stop', true)
-        //     } else if(status == "up"){
-        //         sprite.anims.play('up-stop', true)
-        //     }
-        // }
     }
     
 }

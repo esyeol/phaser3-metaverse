@@ -19,7 +19,7 @@ const config = {
     {
         default:'arcade', // aracde -> matter dafault 물리엔진 변경. 
         arcade:{
-            debug:false,
+            debug:true,
             gravity:{y:0}, // x,y 축으로 자동으로 이동
         },
     },

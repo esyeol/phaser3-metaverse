@@ -24,8 +24,8 @@ export default class new_tile_map extends Phaser.Scene{
         //player(유저) 스폰을 tiled tool 에서 script로 지정할지 코드에서 하드 코딩으로 지정할지 고려. 
 
         this.players = new players(this, 700, 700); // player object 생성.
-
         layer1.setCollisionByProperty({collides:true}); // tiled 툴에서 background layer의 collides 영역 활성화. 
+        this.physics.world.addCollider(this.players.sprite,layer1); 
         // layer2.setCollisionByProperty({collides:true}); // tiled 툴에서 interactive layer의 collides 영역 -> 추후 활성화시 사용.
         
         this.cameras.main.startFollow(this.players.sprite);
