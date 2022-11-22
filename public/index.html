@@ -7,20 +7,58 @@
     <link rel="stylesheet" type="text/css" href="./output.css">
     <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script><!--phaser3.5 version-->
     <!-- <script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin"></script> -->
-    
 </head>
-<body>
-    <h1 class="bg-red-300 text-center">test1</h1>
-    <h1 class="bg-red-300 text-center">test2</h1>
-    <h1 class="bg-red-300 text-center">test3</h1>
-    <h1 class="bg-red-300 text-center">test3</h1>
-    <h1 class="bg-red-300 text-center">test3</h1>
-    <h1 class="bg-red-300 text-center">test3</h1>
+<body class="bg-slate-400">
+    <div class="relative z-8" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+<!--   
+    Background backdrop, show/hide based on slide-over state.
 
+    Entering: "ease-in-out duration-500"
+      From: "opacity-0"
+      To: "opacity-100"
+    Leaving: "ease-in-out duration-500"
+      From: "opacity-100"
+      To: "opacity-0"
+  -->
+  <!-- <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div> -->
 
+  <div class="fixed inset-0 overflow-hidden">
 
-
+      <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+        <div class="pointer-events-auto relative w-screen max-w-xs">
+          <div class="absolute top-0 left-0 -ml-8 flex pt-4 sm:-ml-10 sm:pr-4">
+            <button type="button" class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+              <span class="sr-only">Close panel</span>
+              <!-- Heroicon name: outline/x-mark -->
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex h-full flex-col overflow-y-scroll bg-neutral-800 py-6 shadow-xl">
+            <div class="px-4 sm:px-6">
+              <h2 class="text-lg font-medium text-gray-100" id="slide-over-title">Hangle Square Metaverse</h2>
+            </div>
+            <hr class="my-4 h-px bg-gray-200  dark:bg-gray-800">
+            <div class="relative mt-6 flex-1 px-4 sm:px-6">
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+  <!--canvas rendering-->
     <div id="game-map"></div>
-    <script type="module" src="js/Tiled/new_set_config.js"></script>
+    <!--bottom componet-->
+    <div class="absolute w-full h-16 bottom-0 bg-neutral-200 border-gray-300 ">
+        <div class="hidden mt-5 space-x-3 sm:ml-6 sm:block">
+            <a href="#" class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white ml-3 px-3 py-2 rounded-md text-sm font-medium" >User Name</a>
+            <a href="#" class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white ml-3 px-3 py-2 rounded-md text-sm font-medium">Team</a>
+            <a href="#" class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white ml-3 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+            <a href="#" class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white ml-3 px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+        </div>
+    </div>
+    <!--phaser3 module-->
+    <script defer type="module" src="js/Tiled/new_set_config.js"></script>
 </body>
 </html>
