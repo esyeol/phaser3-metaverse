@@ -23,13 +23,7 @@ export default class new_tile_map extends Phaser.Scene{
         // +player(유저) 스폰을 tiled tool 에서 script로 지정할지 코드에서 하드 코딩으로 지정할지 고려. 
 
         this.players = new players(this, 700, 700); // player object 생성.
-        // this.players = new players(this, 400, 700); // player object 생성.
-        // this.players = new players(this, 300, 700); // player object 생성.
-        // this.players = new players(this, 200, 700); // player object 생성.
-
-
-
-
+        
         layer1.setCollisionByProperty({collides:true}); // tiled 툴에서 background layer의 collides 영역 활성화. 
         layer2.setCollisionByProperty({collides:true}); 
         this.physics.world.addCollider(this.players.sprite,layer1); // tiled 에서 지정한 collides 충돌영역과 player object간 충돌 효과. 
@@ -39,7 +33,7 @@ export default class new_tile_map extends Phaser.Scene{
 
         // canvas 내부에 text 문구 띄우기 위한 구문. 테스트나 사용법 안내할 때, 주로 사용.
         this.add 
-        .text(16,16,"debuging mode ",{
+        .text(16,16,"press 'D' you can use debug mode",{
             font: "18px monospace",
             fill: "#000000",
             padding: { x: 20, y: 10 },
@@ -53,24 +47,23 @@ export default class new_tile_map extends Phaser.Scene{
 
             // Create worldLayer collision graphic above the player, but below the help text
             const graphics = this.add.graphics().setAlpha(0.75).setDepth(20);
+            
             layer1.renderDebug(graphics, {
-              tileColor: null, // Color of non-colliding tiles
-              collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
-              faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
+            tileColor: null, 
+            collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), 
+            faceColor: new Phaser.Display.Color(40, 39, 37, 255), 
             });
+
             layer2.renderDebug(graphics, {
-                tileColor: null, // Color of non-colliding tiles
-                collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
-                faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
-              });
+                tileColor: null, 
+                collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), 
+                faceColor: new Phaser.Display.Color(40, 39, 37, 255), 
+            });
         });
     }
+    
     update(){
         this.players.update();
 
     }
-
-
-
-
 }
