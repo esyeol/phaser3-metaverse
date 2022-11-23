@@ -5,9 +5,9 @@ import tile_map from "./new_tile_map.js";
  * phaser 엔진을 그릴 영역 설정 & arcade physics 엔진 적용. 
  */
 const config = {
-    width:1200,
-    height:780,
-    backgroundColor :"#999999", //#94A3B8
+    width:1650,
+    height:1000,
+    backgroundColor :"#94A3B8", //#94A3B8
     type:Phaser.AUTO,
     pixelArt: true,
     parent:'phaser-tutorial-prac', 

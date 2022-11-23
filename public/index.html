@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phaser3 tutorial</title>
-    <link rel="stylesheet" type="text/css" href="./output.css">
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script><!--phaser3.5 version-->
-    <!-- <script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin"></script> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phaser3 tutorial</title>
+  <link rel="stylesheet" type="text/css" href="./output.css">
+  <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+  <!--phaser3.5 version-->
+  <!-- <script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin"></script> -->
 </head>
-<body class="bg-slate-400">
-    <div class="relative z-8" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-<!--   
-    Background backdrop, show/hide based on slide-over state.
 
-    Entering: "ease-in-out duration-500"
-      From: "opacity-0"
-      To: "opacity-100"
-    Leaving: "ease-in-out duration-500"
-      From: "opacity-100"
-      To: "opacity-0"
-  -->
-  <!-- <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div> -->
+<body class=" bg-stone-300">
+  <!-- <div class="relative z-8" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
 
-  <div class="fixed inset-0 overflow-hidden">
+    <div class="fixed inset-0 overflow-hidden">
 
       <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
         <div class="pointer-events-auto relative w-screen max-w-xs">
           <div class="absolute top-0 left-0 -ml-8 flex pt-4 sm:-ml-10 sm:pr-4">
-            <button type="button" class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+            <button type="button"
+              class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
               <span class="sr-only">Close panel</span>
-              <!-- Heroicon name: outline/x-mark -->
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+   
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
-          <div class="flex h-full flex-col overflow-y-scroll bg-neutral-800 py-6 shadow-xl">
+          <div class="flex h-screen flex-col overflow-y-scroll bg-neutral-800 py-6 shadow-xl">
             <div class="px-4 sm:px-6">
               <h2 class="text-lg font-medium text-gray-100" id="slide-over-title">Hangle Square Metaverse</h2>
             </div>
@@ -45,20 +39,100 @@
           </div>
         </div>
       </div>
-  </div>
-</div>
-  <!--canvas rendering-->
-    <div id="game-map"></div>
-    <!--bottom componet-->
-    <div class="absolute w-full h-16 bottom-0 bg-neutral-200 border-gray-300 ">
-        <div class="hidden mt-5 space-x-3 sm:ml-6 sm:block">
-            <a href="#" class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white ml-3 px-3 py-2 rounded-md text-sm font-medium" >User Name</a>
-            <a href="#" class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white ml-3 px-3 py-2 rounded-md text-sm font-medium">Team</a>
-            <a href="#" class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white ml-3 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-            <a href="#" class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white ml-3 px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
-        </div>
     </div>
-    <!--phaser3 module-->
-    <script defer type="module" src="js/Tiled/new_set_config.js"></script>
+  </div> -->
+  <!--side menu-->
+  <div id="side-menu" class="fixed top-0 right-0 w-[320px] h-screen z-50 bg-gray-700 p-5
+flex flex-col space-y-5 text-white duration-300">
+    <a href="javascript:void(0)" class="text-right text-4xl" onclick="closeMenu()">&times;</a>
+    <div class="px-4 sm:px-6">
+      <h2 class="text-lg font-medium text-gray-100" id="slide-over-title">Hangle Square Metaverse</h2>
+    </div>
+    <hr class="my-4 h-px bg-gray-200  dark:bg-gray-800">
+    <a class="hover:text-amber-500" href="#">text1</a>
+    <a class="hover:text-amber-500" href="#">text2</a>
+    <a class="hover:text-amber-500" href="#">text3</a>
+    <a class="hover:text-amber-500" href="#">text4</a>
+    <a class="hover:text-amber-500" href="#">text5</a>
+</div>
+
+  <!--phaser3 metaverse canvas rendering-->
+  <div id="game-map" class="relative"></div>
+  <!--bottom componet-->
+  <div class="fixed w-full bottom-0 bg-gray-800 ">
+    <div class="mx-auto max-w-9xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button type="button"
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex flex-shrink-0 items-center">
+            <img class="block h-8 w-auto lg:hidden" src="./resource/images/logo.png" alt="hs_logo">
+            <img class="hidden h-8 w-auto lg:block" src="./resource/images/logo.png" alt="hs_logo">
+          </div>
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <a href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                aria-current="page">마이크</a>
+              <a href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">영상</a>
+              <a href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">이모지</a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div>
+            <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" onclick="openMenu()">서랍</button>
+          </div>
+          <!-- Profile dropdown -->
+          <div class="relative ml-5">
+            <div>
+              <button type="button"
+                class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                <img class="h-8 w-8 rounded-full" src="./resource/images/user_icon.png" alt="">
+                <a href="#"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">UserName</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pt-2 pb-3">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          aria-current="page">마이크</a>
+        <a href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">영상</a>
+        <a href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">이모지</a>
+
+      </div>
+    </div>
+  </div>
+  <!--phaser3 module-->
+  <script defer type="module" src="js/Tiled/new_set_config.js"></script>
+  <script defer src="js/Ui/slideBox.js"></script>
 </body>
+
 </html>
