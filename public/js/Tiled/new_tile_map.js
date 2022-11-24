@@ -19,10 +19,13 @@ export default class new_tile_map extends Phaser.Scene{
 
         const layer1 = map.createStaticLayer('background',tileset,0,0); // background layer
         const layer2 = map.createLayer('interactive',tileset,0,0); // background layer 위에 올려진 layer를 추가할 때, 다음과 같이 구성. => interactive는 json 파일에 layer name으로 명시.
+
+        const spawnPoint = map.findObject("object",(obj)=>obj.name === "spawn_point"); // player의 스폰지역을 tiled 에서 지정한 영역으로 지정.
         
         // +player(유저) 스폰을 tiled tool 에서 script로 지정할지 코드에서 하드 코딩으로 지정할지 고려. 
 
-        this.players = new players(this, 700, 700); // player object 생성.
+        this.players = new players(this, spawnPoint.x, spawnPoint.y); // player object 생성.
+
         
         layer1.setCollisionByProperty({collides:true}); // tiled 툴에서 background layer의 collides 영역 활성화. 
         layer2.setCollisionByProperty({collides:true}); 
