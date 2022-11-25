@@ -4,60 +4,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phaser3 tutorial</title>
+  <title>HS-Metaverse</title>
   <link rel="stylesheet" type="text/css" href="./output.css">
   <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
   <!--phaser3.5 version-->
   <!-- <script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin"></script> -->
 </head>
 
-<body class=" bg-stone-300">
-  <!-- <div class="relative z-8" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-
-    <div class="fixed inset-0 overflow-hidden">
-
-      <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-        <div class="pointer-events-auto relative w-screen max-w-xs">
-          <div class="absolute top-0 left-0 -ml-8 flex pt-4 sm:-ml-10 sm:pr-4">
-            <button type="button"
-              class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
-              <span class="sr-only">Close panel</span>
-   
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-          <div class="flex h-screen flex-col overflow-y-scroll bg-neutral-800 py-6 shadow-xl">
-            <div class="px-4 sm:px-6">
-              <h2 class="text-lg font-medium text-gray-100" id="slide-over-title">Hangle Square Metaverse</h2>
-            </div>
-            <hr class="my-4 h-px bg-gray-200  dark:bg-gray-800">
-            <div class="relative mt-6 flex-1 px-4 sm:px-6">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!--side menu-->
-  <div id="side-menu" class="fixed top-0 right-0 w-[320px] h-screen z-50 bg-gray-700 p-5
-flex flex-col space-y-5 text-white duration-300">
+<body class=" bg-slate-400">
+  <!--side_menu-->
+  <div id="side-menu"
+    class="fixed top-0 right-0 w-[320px] h-screen bg-gray-700 p-5 flex flex-col space-y-5 text-white duration-300">
     <a href="javascript:void(0)" class="text-right text-4xl" onclick="closeMenu()">&times;</a>
     <div class="px-4 sm:px-6">
-      <h2 class="text-lg font-medium text-gray-100" id="slide-over-title">Hangle Square Metaverse</h2>
+      <h2 class="text-lg font-medium text-gray-100 mb-6" id="slide-over-title ">Hangle Square Metaverse</h2>
     </div>
-    <hr class="my-4 h-px bg-gray-200  dark:bg-gray-800">
-    <a class="hover:text-amber-500" href="#">text1</a>
-    <a class="hover:text-amber-500" href="#">text2</a>
-    <a class="hover:text-amber-500" href="#">text3</a>
-    <a class="hover:text-amber-500" href="#">text4</a>
-    <a class="hover:text-amber-500" href="#">text5</a>
-</div>
 
+    <div class="mt-8 h-4/5 overflow-y-scroll shadow-xl">
+      <div class="flow-root">
+        <ul role="list" class="-my-6 divide-y divide-gray-200">
+          <li class="flex py-6">
+            <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-gray-200">
+              <img
+                src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt="player1" class="h-full w-full object-cover object-center">
+            </div>
+            <div class="ml-4 flex flex-1 flex-col">
+              <div>
+                <div class="flex justify-between text-base font-medium text-gray-100">
+                  <h3>
+                    <a href="#">User1</a>
+                  </h3>
+                </div>
+                <div class="flex flex-1 items-end justify-between text-sm">
+                  <p class="mt-1 text-sm text-gray-500">text..</p>
+                  <div class="flex mr-4 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="left-11 w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="flex py-6">
+            <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-gray-200">
+              <img
+                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt="player2" class="h-full w-full object-cover object-center">
+            </div>
+            <div class="ml-4 flex flex-1 flex-col">
+              <div>
+                <div class="flex justify-between text-base font-medium text-gray-100">
+                  <h3>
+                    <a href="#">User2</a>
+                  </h3>
+                </div>
+                <div class="flex flex-1 items-end justify-between text-sm">
+                  <p class="mt-1 text-sm text-gray-500">text..</p>
+                  <div class="flex mr-4 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="left-11 w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="flex py-6">
+            <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-gray-200">
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt="player3" class="h-full w-full object-cover object-center">
+            </div>
+            <div class="ml-4 flex flex-1 flex-col">
+              <div>
+                <div class="flex justify-between text-base font-medium text-gray-100">
+                  <h3>
+                    <a href="#">User3</a>
+                  </h3>
+                </div>
+                <div class="flex flex-1 items-end justify-between text-sm">
+                  <p class="mt-1 text-sm text-gray-500">text..</p>
+                  <div class="flex mr-4 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="left-11 w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="flex py-6">
+            <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-gray-200">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                alt="player3" class="h-full w-full object-cover object-center">
+            </div>
+            <div class="ml-4 flex flex-1 flex-col">
+              <div>
+                <div class="flex justify-between text-base font-medium text-gray-100">
+                  <h3>
+                    <a href="#">User4</a>
+                  </h3>
+                </div>
+                <div class="flex flex-1 items-end justify-between text-sm">
+                  <p class="mt-1 text-sm text-gray-500">text..</p>
+                  <div class="flex mr-4 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="left-11 w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <!--phaser3 metaverse canvas rendering-->
-  <div id="game-map" class="relative"></div>
+  <div id="game-map" class="flex"></div>
   <!--bottom componet-->
   <div class="fixed w-full bottom-0 bg-gray-800 ">
     <div class="mx-auto max-w-9xl px-2 sm:px-6 lg:px-8">
@@ -97,7 +164,12 @@ flex flex-col space-y-5 text-white duration-300">
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <div>
-            <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" onclick="openMenu()">서랍</button>
+            <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              onclick="openMenu()">채팅</button>
+          </div>
+          <div>
+            <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              onclick="openMenu()">서랍</button>
           </div>
           <!-- Profile dropdown -->
           <div class="relative ml-5">
@@ -105,16 +177,17 @@ flex flex-col space-y-5 text-white duration-300">
               <button type="button"
                 class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                <img class="h-8 w-8 rounded-full" src="./resource/images/user_icon.png" alt="">
+                <div class="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full border">
+                  <img class="h-full w-full object-cover object-center" src="./resource/images/user_icon.png" alt="">
+                </div>
                 <a href="#"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">UserName</a>
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-sm font-medium">UserName</a>
               </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pt-2 pb-3">
@@ -126,7 +199,6 @@ flex flex-col space-y-5 text-white duration-300">
           class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">영상</a>
         <a href="#"
           class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">이모지</a>
-
       </div>
     </div>
   </div>
