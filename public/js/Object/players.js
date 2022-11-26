@@ -8,28 +8,28 @@ export default class players {
         anims.create({
 			key: 'down',
 			frames: anims.generateFrameNumbers('player', {  start: 0, end: 3 }),
-			frameRate: 8,
+			frameRate: 10,
 			repeat: -1
 		});
 
 		anims.create({
 			key: 'left',
 			frames: anims.generateFrameNumbers('player', {  start: 4, end: 7 }),
-			frameRate: 8,
+			frameRate: 10,
 			repeat: -1
 		});
 
 		anims.create({
 			key: 'right',
 			frames: anims.generateFrameNumbers('player', {  start: 8, end: 11  }),
-			frameRate: 8,
+			frameRate: 10,
 			repeat: -1
 		});
 
         anims.create({
 			key: 'up',
 			frames: anims.generateFrameNumbers('player', {  start: 12, end: 15  }),
-			frameRate: 8,
+			frameRate: 10,
 			repeat: -1
 		});
 
@@ -41,8 +41,9 @@ export default class players {
 
     
     }
-    static preload(){
-
+    
+    static preload(scene){
+        scene.load.spritesheet("player", "resource/images/player1.png", {frameWidth: 32,frameHeight: 42,}); // 캐릭터 sprite 이미지 load
     }
 
     update(){
