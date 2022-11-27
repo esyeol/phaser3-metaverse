@@ -4,6 +4,8 @@
   "description": "phaser3 + nodejs prac",
   "main": "index.js",
   "scripts": {
+    "start":"node index.js",
+    "dev":"nodemon index.js",
     "build":"tailwindcss -i ./public/css/input.css -o ./dist/output.css --watch"
   },
   "repository": {
