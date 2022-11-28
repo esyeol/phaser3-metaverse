@@ -13,16 +13,15 @@
 
 <body class=" bg-slate-400">
   <!--side_menu-->
-  <div id="side-menu"
-    class="fixed top-0 right-0 w-[320px] h-screen bg-gray-700 p-5 flex flex-col space-y-5 text-white duration-300">
+  <div id="side-menu" class="fixed top-0 right-0 w-[320px] h-screen bg-gray-700 p-5 flex flex-col space-y-5 text-white duration-300">
     <a href="javascript:void(0)" class="text-right text-4xl" onclick="closeMenu()">&times;</a>
     <div class="px-4 sm:px-6">
       <h2 class="text-lg font-medium text-gray-100 mb-6" id="slide-over-title ">Hangle Square Metaverse</h2>
     </div>
-
     <div class="mt-8 h-4/5 overflow-y-scroll shadow-xl">
       <div class="flow-root">
         <ul role="list" class="-my-6 divide-y divide-gray-200">
+          <!--hard coding profile-->
           <li class="flex py-6">
             <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-gray-200">
               <img
@@ -47,82 +46,30 @@
               </div>
             </div>
           </li>
-          <li class="flex py-6">
-            <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-gray-200">
-              <img
-                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt="player2" class="h-full w-full object-cover object-center">
-            </div>
-            <div class="ml-4 flex flex-1 flex-col">
-              <div>
-                <div class="flex justify-between text-base font-medium text-gray-100">
-                  <h3>
-                    <a href="#">User2</a>
-                  </h3>
-                </div>
-                <div class="flex flex-1 items-end justify-between text-sm">
-                  <p class="mt-1 text-sm text-gray-500">text..</p>
-                  <div class="flex mr-4 ">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="left-11 w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="flex py-6">
-            <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-gray-200">
-              <img
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt="player3" class="h-full w-full object-cover object-center">
-            </div>
-            <div class="ml-4 flex flex-1 flex-col">
-              <div>
-                <div class="flex justify-between text-base font-medium text-gray-100">
-                  <h3>
-                    <a href="#">User3</a>
-                  </h3>
-                </div>
-                <div class="flex flex-1 items-end justify-between text-sm">
-                  <p class="mt-1 text-sm text-gray-500">text..</p>
-                  <div class="flex mr-4 ">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="left-11 w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="flex py-6">
-            <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-gray-200">
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                alt="player3" class="h-full w-full object-cover object-center">
-            </div>
-            <div class="ml-4 flex flex-1 flex-col">
-              <div>
-                <div class="flex justify-between text-base font-medium text-gray-100">
-                  <h3>
-                    <a href="#">User4</a>
-                  </h3>
-                </div>
-                <div class="flex flex-1 items-end justify-between text-sm">
-                  <p class="mt-1 text-sm text-gray-500">text..</p>
-                  <div class="flex mr-4 ">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="left-11 w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
         </ul>
       </div>
     </div>
   </div>
+    <!--chat_menu-->
+    <div id="chat-menu" class="fixed top-0 right-[-320px] w-[320px] h-screen bg-gray-700 p-5 flex flex-col  text-white duration-300">
+      <a href="javascript:void(0)" class="text-right text-4xl" onclick="closeChat()">&times;</a>
+      <div class="px-4 sm:px-6">
+        <h2 class="text-lg font-medium text-gray-100 mb-6" id="slide-over-title ">광장</h2>
+      </div>
+      <div class="mt-8 h-4/5 shadow-xl">
+        <div class="flow-root h-2/4 w-full overflow-y-scroll bg-white border-slate-300 rounded-md py-2 px-2 pt-2">
+          <p class="text-black">user1: hi</p>
+          <p class="text-black">user2: hello</p>
+          <p class="text-black">user3: good</p>
+          <p class="text-black">user2: thanks</p>
+          <p class="text-black">user1: :)</p>
+        </div>
+        <div class="pt-6">
+          <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 text-black rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-indigo-500 focus:ring-1 sm:text-sm" placeholder="메시지를 입력하세요" type="text" name="chatMsg"/>
+        </div>
+      </div>
+    </div>
+  
   <!--phaser3 metaverse canvas rendering-->
   <div id="game-map" class="flex"></div>
   <!--bottom componet-->
@@ -165,11 +112,11 @@
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <div>
             <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              onclick="openMenu()">채팅</button>
+              onclick="showChat()">채팅</button>
           </div>
           <div>
             <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              onclick="openMenu()">서랍</button>
+              onclick="showMenu()">서랍</button>
           </div>
           <!-- Profile dropdown -->
           <div class="relative ml-5">
@@ -192,13 +139,13 @@
     <div class="sm:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pt-2 pb-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#"
+        <button href=""
           class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          aria-current="page">마이크</a>
-        <a href="#"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">영상</a>
-        <a href="#"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">이모지</a>
+          aria-current="page">마이크</button>
+        <button href=""
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">영상</button>
+        <button href=""
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">이모지</button>
       </div>
     </div>
   </div>
