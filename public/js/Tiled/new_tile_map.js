@@ -1,5 +1,6 @@
 import players from "../Object/players.js";
 
+
 export default class new_tile_map extends Phaser.Scene {
   constructor() {
     super("new_tile_map");
@@ -7,30 +8,51 @@ export default class new_tile_map extends Phaser.Scene {
 
   preload() {
     console.log("preload");
+
+    const progress = this.add.graphics(); // progress Loader define
+
+    //load preload 
+    this.load.on('progress',function(value){
+      progress.clear();
+      progress.fillStyle(0xffffff, 1);
+        progress.fillRect(0, 270, 800 * value, 60);
+    });
+    
+    // preload 끝날시, prgoress graphics를 제거.
+    this.load.on('complete', function () {
+      progress.destroy();
+    });
+
     players.preload(this);
     // this.load.spritesheet("player", "resource/images/player1.png", {frameWidth: 32,frameHeight: 42,}); // 캐릭터 sprite 이미지 load
     this.load.image("tiles", "resource/images/hs_tiles_source.png"); // 타일맵에 사용된 이미지 리소스 로드.
+
     this.load.tilemapTiledJSON("map", "resource/images/hs_main_map.json"); // 타일맵 json 이미지 로드.
-    this.load.spritesheet("portals","resource/images/portal_128.png",{frameWidth:128,frameHeight:64}); // portal sprite sheet load
+    this.load.spritesheet("portals", "resource/images/portal_128.png", {frameWidth: 128,frameHeight: 64,}); // portal sprite sheet load
+  
   }
+
   create() {
-    // 맵 충돌시, classroom_scene 영역으로 이동하는 함수.  
+    // 맵 충돌시, classroom_scene 영역으로 이동하는 함수.
     let collision = () => this.scene.start("class");
 
     console.log("create");
-    const map = this.make.tilemap({ key: "map" }); // 타일 맵 define.
-    const tileset = map.addTilesetImage( "hs_tiles_source","tiles",32,32,0,0);
 
-    const layer1 = map.createStaticLayer("background", tileset, 0, 0); // background layer
+    const map = this.make.tilemap({ key: "map" }); // 타일 맵 define.
+    const tileset = map.addTilesetImage("hs_tiles_source","tiles",32,32,0,0);
+
+    const layer1 = map.createLayer("background", tileset, 0, 0); // background layer
     const layer2 = map.createLayer("interactive", tileset, 0, 0); // background layer 위에 올려진 layer를 추가할 때, 다음과 같이 구성. => interactive는 json 파일에 layer name으로 명시.
-    const spawnPoint = map.findObject(
-      "object",
-      (obj) => obj.name === "spawn_point"
-    ); // player의 스폰지역을 tiled 에서 지정한 영역으로 지정.
+    const spawnPoint = map.findObject("object",(obj) => obj.name === "spawn_point"); // player의 스폰지역을 tiled 에서 지정한 영역으로 지정.
     const portal = map.findObject("teleport", (obj) => obj.name === "portal"); // player의 scene 변경 영역 지정.
+
     console.log(portal.x + portal.y); // tiled 툴에서 지정한 class_room 이동 좌표.
 
-    const location = this.physics.add.staticSprite(portal.x, portal.y,'portals'); // cloassroom으로 이동할 좌표값을 sprite 객체로 지정.
+    const location = this.physics.add.staticSprite(
+      portal.x,
+      portal.y,
+      "portals"
+    ); // cloassroom으로 이동할 좌표값을 sprite 객체로 지정.
 
     this.players = new players(this, spawnPoint.x, spawnPoint.y); // player object 생성.
 
@@ -78,14 +100,9 @@ export default class new_tile_map extends Phaser.Scene {
         faceColor: new Phaser.Display.Color(40, 39, 37, 255),
       });
     });
-
-    // mapChange Test
-    // this.input.keyboard.once("keydown-W",(event)=>{
-    //     this.scene.start('class');
-    // })
   }
 
   update() {
-    this.players.update();
+    this.players.update(); //캐릭터가 갱신될 때 마다 update 하는 부분.
   }
 }
