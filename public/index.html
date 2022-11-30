@@ -7,6 +7,8 @@
   <title>HS-Metaverse</title>
   <link rel="stylesheet" type="text/css" href="./output.css">
   <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+  <!-- <script src="/socket.io/socket.io.js"></script> -->
+  <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
   <!--phaser3.5 version-->
   <!-- <script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin"></script> -->
 </head>
@@ -150,6 +152,7 @@
     </div>
   </div>
   <!--phaser3 module-->
+  <script defer src="js/Socket/connect.js"></script>
   <script defer type="module" src="js/Tiled/new_set_config.js"></script>
   <script defer src="js/Ui/slideBox.js"></script>
 </body>

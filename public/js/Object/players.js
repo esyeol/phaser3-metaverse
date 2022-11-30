@@ -34,16 +34,14 @@ export default class players {
 		});
 
         this.sprite = scene.physics.add.sprite(x,y,"player",0).setSize(22,33).setOffset(23,27);
-
         this.sprite.anims.play("down"); // Player가 정지해있는 경우 animation 정의.
-
         this.keys = scene.input.keyboard.createCursorKeys();
 
-    
     }
+    // resource/images/man-8.png => 파일 서버 경로. 
     
     static preload(scene){
-        scene.load.spritesheet("player", "resource/images/player1.png", {frameWidth: 32,frameHeight: 42,}); // 캐릭터 sprite 이미지 load
+        scene.load.spritesheet("player", "resource/images/man-8.png", {frameWidth:32,frameHeight:48,}); // 캐릭터 sprite 이미지 load
     }
 
     update(){
@@ -70,17 +68,16 @@ export default class players {
         if(keys.up.isDown)
 		{
             sprite.body.setVelocityY(-speed);
-            // sprite.setVelocityX(0);
+            sprite.body.setVelocityX(0);
          	
         } 
         else if(keys.down.isDown){
             sprite.body.setVelocityY(speed);
-            // sprite.body.setVelocityX(0);            
+            sprite.body.setVelocityX(0);            
                    
         }
 
         sprite.body.velocity.normalize().scale(speed);
-
 
         if(keys.left.isDown){
             sprite.anims.play('left', true);
@@ -97,5 +94,5 @@ export default class players {
             //    else sprite.setTexture("player", 46);
         } 
     }
-    
+
 }
