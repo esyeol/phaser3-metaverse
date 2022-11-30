@@ -13,7 +13,7 @@ socket.emit("joinMetaverse","eyJhbGciOiJzaGEyNTYiLCJ0eXAiOiJKV1QifS57IlVzZXJfSUQ
 /**
  * 복호화된 paramater 값을 인자로 소켓서버에서 리턴받음. 
  * @param {id} jwt 토큰에서 복호화한 user 테이블의 id value. 
- * @param {eamil} jwt 토큰에서 복호화한 user 테이블의 email vlaue.
+ * @param {email} jwt 토큰에서 복호화한 user 테이블의 email vlaue.
  */
 socket.on('userData', (id,eamil) => {   
     console.log(id);
