@@ -4,9 +4,9 @@
   "description": "phaser3 + nodejs prac",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
-    "dev":"nodemon index.js",
-    "build":"tailwindcss -i ./public/css/input.css -o ./dist/output.css --watch"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "tailwindcss -i ./public/css/input.css -o ./dist/output.css --watch"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
     "nodemon": "^2.0.20",
     "phaser": "^3.55.2",
     "phaser-matter-collision-plugin": "^1.0.0",
-    "phaser-slopes": "^0.2.0-beta"
+    "phaser-slopes": "^0.2.0-beta",
+    "socket.io": "^4.5.4"
   },
   "devDependencies": {
     "tailwindcss": "^3.2.4"
