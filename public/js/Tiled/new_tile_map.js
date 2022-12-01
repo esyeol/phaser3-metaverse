@@ -4,24 +4,11 @@ import players from "../Object/players.js";
 export default class new_tile_map extends Phaser.Scene {
   constructor() {
     super("new_tile_map");
+    Phaser.Scene.call(this,{key:"new_tile_map"});
   }
 
   preload() {
     console.log("preload");
-
-    const progress = this.add.graphics(); // progress Loader define
-
-    //load preload 
-    this.load.on('progress',function(value){
-      progress.clear();
-      progress.fillStyle(0xffffff, 1);
-        progress.fillRect(0, 270, 800 * value, 60);
-    });
-    
-    // preload 끝날시, prgoress graphics를 제거.
-    this.load.on('complete', function () {
-      progress.destroy();
-    });
 
     players.preload(this);
     // this.load.spritesheet("player", "resource/images/player1.png", {frameWidth: 32,frameHeight: 42,}); // 캐릭터 sprite 이미지 load
@@ -55,7 +42,8 @@ export default class new_tile_map extends Phaser.Scene {
     ); // cloassroom으로 이동할 좌표값을 sprite 객체로 지정.
 
     this.players = new players(this, spawnPoint.x, spawnPoint.y); // player object 생성.
-
+    this.players.create();
+    
     layer1.setCollisionByProperty({ collides: true }); // tiled 툴에서 background layer의 collides 영역 활성화.
     layer2.setCollisionByProperty({ collides: true });
     this.physics.world.addCollider(this.players.sprite, layer1); // tiled 에서 지정한 collides 충돌영역과 player object간 충돌 효과.
