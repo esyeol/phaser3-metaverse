@@ -84,6 +84,9 @@ const hideMenu = () => {
     menu.classList.add("hidden");
     console.log(`url-> ${imgPath}`);
     document.getElementById('selAvator').src=imgPath;
+    const enterBtn = document.getElementById('enter-metaverse');
+    enterBtn.classList.remove('hidden');
+    enterBtn.classList.add('inline-block');
 //   console.log(`유저가 선택한 charactor NUM -> ${selAvator()}`);
   
 };

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,17 @@
 <body>
   <div class="isolate flex justify-center items-center bg-white">
     <div class="absolute inset-x-0 top-[-4rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
-        <svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
+      <svg
+        class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+        viewBox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3"
+          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
         <defs>
-            <linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#9089FC"></stop>
-                <stop offset="1" stop-color="#FF80B5"></stop>
-              </linearGradient>
+          <linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#9089FC"></stop>
+            <stop offset="1" stop-color="#FF80B5"></stop>
+          </linearGradient>
         </defs>
       </svg>
     </div>
@@ -27,9 +32,9 @@
             <div>
               <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-5xl">한글 스퀘어 메타버스에 오신걸 환영합니다</h1>
               <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">광장으로 입장하시기 전 캐릭터를 선택해주세요!</p>
-             <!--nick name 입력.-->
+              <!--nick name 입력.-->
               <div class="mt-4 flex gap-x-4 sm:justify-center">
-            
+
               </div>
               <div class="mt-8 flex gap-x-4 sm:justify-center">
                 <img class="rounded-xl" id="selAvator" src="https://via.placeholder.com/400" alt="default">
@@ -41,6 +46,10 @@
                   캐릭터 선택하기
                   <span class="text-indigo-200" aria-hidden="true">&rarr;</span>
                 </button>
+                <!--메타버스 입장 버튼 default:hidden, 캐릭터 선택시:inline-block-->
+                <button id="enter-metaverse"
+                  class=" hidden rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">메타버스
+                  입장하기</button>
               </div>
             </div>
             <div
@@ -79,16 +88,20 @@
                     <div class="raspect-w-1 aspect-h-1 overflow-hidden rounded-lg group-hover:opacity-75">
                       <div>
                         <div id="div_1" class="slide relative">
-                          <img id="img_1" class="w-full h-96 object-cover" onclick="selAvator(this.id)" src="./resource/images/t_1.png">
+                          <img id="img_1" class="w-full h-96 object-cover" onclick="selAvator(this.id)"
+                            src="./resource/images/t_1.png">
                         </div>
                         <div id="div_2" class="slide relative">
-                          <img id="img_2"class="w-full h-96 object-cover" onclick="selAvator(this.id)" src="./resource/images/t_2.png">
+                          <img id="img_2" class="w-full h-96 object-cover" onclick="selAvator(this.id)"
+                            src="./resource/images/t_2.png">
                         </div>
                         <div id="div_3" class="slide relative">
-                          <img id="img_3" class="w-full h-96 object-cover" onclick="selAvator(this.id)" src="./resource/images/t_3.png">
+                          <img id="img_3" class="w-full h-96 object-cover" onclick="selAvator(this.id)"
+                            src="./resource/images/t_3.png">
                         </div>
                         <div id="div_4" class="slide relative">
-                          <img id="img_4"class="w-full h-96 object-cover" onclick="selAvator(this.id)" src="./resource/images/t_4.png">
+                          <img id="img_4" class="w-full h-96 object-cover" onclick="selAvator(this.id)"
+                            src="./resource/images/t_4.png">
                         </div>
                         <!--back btn -->
                         <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white hover:text-gray-500 cursor-pointer"
