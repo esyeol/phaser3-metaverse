@@ -1,10 +1,8 @@
 import players from "../Object/players.js";
-
-
 export default class new_tile_map extends Phaser.Scene {
   constructor() {
     super("new_tile_map");
-    Phaser.Scene.call(this,{key:"new_tile_map"});
+    Phaser.Scene.call(this,{key:'new_tile_map'});
   }
 
   preload() {
@@ -12,10 +10,10 @@ export default class new_tile_map extends Phaser.Scene {
 
     players.preload(this);
     // this.load.spritesheet("player", "resource/images/player1.png", {frameWidth: 32,frameHeight: 42,}); // 캐릭터 sprite 이미지 load
-    this.load.image("tiles", "resource/images/hs_tiles_source.png"); // 타일맵에 사용된 이미지 리소스 로드.
+    this.load.image("tiles", "resource/sprite/hs_tiles_source.png"); // 타일맵에 사용된 이미지 리소스 로드.
 
-    this.load.tilemapTiledJSON("map", "resource/images/hs_main_map.json"); // 타일맵 json 이미지 로드.
-    this.load.spritesheet("portals", "resource/images/portal_128.png", {frameWidth: 128,frameHeight: 64,}); // portal sprite sheet load
+    this.load.tilemapTiledJSON("map", "resource/tileset/hs_main_map.json"); // 타일맵 json 이미지 로드.
+    this.load.spritesheet("portals", "resource/sprite/portal_128.png", {frameWidth: 128,frameHeight: 64,}); // portal sprite sheet load
   
   }
 

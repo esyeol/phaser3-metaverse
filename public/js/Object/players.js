@@ -16,7 +16,7 @@ export default class players {
     }
     
     static preload(scene){
-        scene.load.spritesheet("player", "resource/images/man-8.png", {frameWidth:32,frameHeight:48,}); // 캐릭터 sprite 이미지 load
+        scene.load.spritesheet("player", "resource/sprite/man-1.png", {frameWidth:32,frameHeight:42,}); // 캐릭터 sprite 이미지 load
     }
 
     create(){

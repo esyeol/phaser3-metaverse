@@ -8,7 +8,7 @@ export default class classroom extends Phaser.Scene{
     preload(){
         console.log('classroom preload');
         players.preload(this); 
-        this.load.image("classRoom", "resource/images/tileset_school.png"); // 타일맵에 사용된 이미지 리소스 로드.
+        this.load.image("classRoom", "resource/sprite/tileset_school.png"); // 타일맵에 사용된 이미지 리소스 로드.
         this.load.tilemapTiledJSON("classMap", "resource/tileset/room.json"); // 타일맵 json 이미지 로드.
     }
     create(){
@@ -25,8 +25,6 @@ export default class classroom extends Phaser.Scene{
         const portal = map.findObject("teleport",(obj) => obj.name === "portal");
 
         const location = this.physics.add.staticSprite(portal.x,portal.y,); 
-
-
 
         this.players = new players(this, spawnPoint.x, spawnPoint.y); // player object 생성.
 
