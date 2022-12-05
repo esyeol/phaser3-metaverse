@@ -81,12 +81,17 @@ const showMenu = () => {
 };
 
 const hideMenu = () => {
-    menu.classList.add("hidden");
+    // menu.classList.add("hidden");
+    closeModal();
     console.log(`url-> ${imgPath}`);
     document.getElementById('selAvator').src=imgPath;
     const enterBtn = document.getElementById('enter-metaverse');
     enterBtn.classList.remove('hidden');
     enterBtn.classList.add('inline-block');
-//   console.log(`유저가 선택한 charactor NUM -> ${selAvator()}`);
-  
+
 };
+
+// x 버튼 클릭시 modal 닫는 메서드.
+const closeModal =() => {
+  menu.classList.add("hidden");
+}
