@@ -1,5 +1,5 @@
 {
-  "name": "phaser-tutorial-prac",
+  "name": "hs-metaverse",
   "version": "1.0.0",
   "description": "phaser3 + nodejs prac",
   "main": "index.js",
@@ -25,7 +25,8 @@
     "phaser": "^3.55.2",
     "phaser-matter-collision-plugin": "^1.0.0",
     "phaser-slopes": "^0.2.0-beta",
-    "socket.io": "^4.5.4"
+    "socket.io": "^4.5.4",
+    "socket.io-client": "^4.5.4"
   },
   "devDependencies": {
     "tailwindcss": "^3.2.4"
