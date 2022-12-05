@@ -1,61 +1,76 @@
-/*
- * player 클래스를 모듈화하여 내보낸다는 의미. => 다른 js 파일에서 import 해서 가져와 사용할 수 있음.
- * 추후 소켓을 이용해 멀티스레드 환경에서 player object 들이 움직여야 하기에 다음과 같이 구상.
- * */ 
-export default class player extends Phaser.Physics.Matter.Sprite{
-    constructor(data){
-        let{scene,x,y,texture,frame}=data;
-        super(scene.matter.world,x,y,texture,frame);
-        this.scene.add.existing(this);
+/** 소켓 클라이언트에 대한 명시가 여기에 추가되어야함. */ 
+import {I_PLAYER} from "../constants/assets.js";
 
-        const {Body,Bodies} =Phaser.Physics.Matter.Matter;
-        var playerCollider = Bodies.circle(this.x,this.y,12,{isSensor:false,label:'playerCollider'});
-        var playerSensor = Bodies.circle(this.x,this.y,20,{isSensor:true, label:'playerSensor'});
-        const compoundBody = Body.create({
-            parts:[playerCollider,playerSensor],
-            frictionAir : 0.6,
-        });
-        this.setExistingBody(compoundBody)
-
-
-    }
-    static preload(scene){
-        scene.load.atlas('obj_man','resource/images/obj_man.png','resource/images/obj_man_atlas.json');
-        scene.load.animation('man_anim','resource/images/obj_man_anim.json');
-    }
-
-    get velocity(){
-        return this.body.velocity;
-    }
-
+export default class player {
     
-    // player object가 갱신될 떄 마다 수행하는 함수 정의.   
-    update(){
-        console.log("update");
-        // this.anims.play('man_idle',true); // 애니메이션 설정. 
-        const speed = 5.5; // canvas 내부 object의 속도 조정. 
-        let playerVelocity = new Phaser.Math.Vector2(); // 2D 공간에서 백터 표현을 위한 phaser 자체 클래스 ver3,4 까지 있음. 
-        if(this.inputKeys.left.isDown){
-            playerVelocity.x = -1;
-        }else if(this.inputKeys.right.isDown){
-            playerVelocity.x = 1; 
+    constructor(scene,x,y,charactor){
+        this.scene = scene;
+        this.x = x;
+        this.y = y;
+        this.charactor = charactor; 
+
+        //소켓서버 파트가 정해질 경우, 추가.
+        // this.players = {};  // 소켓에 연결중인 player를 objecdt 형식으로 저장.
+
+        // // 캐릭터 지정.
+        this.sprite = scene.physics.add.sprite(x,y,I_PLAYER).setSize(30, 40).setOffset(0, 24);
+        this.keys = scene.input.keyboard.createCursorKeys();
+
+        this.scene.cameras.main.fadeFrom(1000);
+        // this.scene.physics.world.setBounds(0, 0, this.scene.map.widthInPixels, this.scene.map.heightInPixels);
+        // this.scene.cameras.main.setBounds(0, 0, this.scene.map.widthInPixels, this.scene.map.heightInPixels);
+        this.scene.cameras.main.startFollow(this.sprite,true);
+    }
+
+    // 캐릭터가 이동함에 따라 값을 변경해주는 로직. 
+    update(direction){
+
+        const {keys,sprite} = this;
+        const speed = 500;
+        const prevVelocity = sprite.body.velocity.clone();
+
+        sprite.body.setVelocity(0); //  player가 정지했을 때, 마지막 프레임 형태로 정지함. 
+
+        if (keys.left.isDown)
+		{
+            sprite.body.setVelocityX(-speed);
+            // sprite.body.setVelocityY(0);
+		}
+		else if (keys.right.isDown)
+		{
+            sprite.body.setVelocityX(speed);
+            sprite.setFlipX(false);
+            // sprite.setVelocityY(0);
+		}
+
+        if(keys.up.isDown)
+		{
+            sprite.body.setVelocityY(-speed);
+            sprite.body.setVelocityX(0);
+         	
+        } 
+        else if(keys.down.isDown){
+            sprite.body.setVelocityY(speed);
+            sprite.body.setVelocityX(0);            
+                   
         }
 
-        if(this.inputKeys.up.isDown){
-            playerVelocity.y = -1;
-        }else if(this.inputKeys.down.isDown){
-            playerVelocity.y = 1; 
-        }
-        playerVelocity.normalize(); // 
-        playerVelocity.scale(speed); // player scale 설정. 
-        this.setVelocity(playerVelocity.x,playerVelocity.y);
+        sprite.body.velocity.normalize().scale(speed);
 
-        if(Math.abs(this.velocity.x) > 0.1 || Math.abs(this.velocity.y)>0.1){
-            this.anims.play('man_idle',true);
+        if(keys.left.isDown){
+            sprite.anims.play('left', true);
+        }else if(keys.right.isDown){
+            sprite.anims.play('right', true);
+        }else if(keys.down.isDown){
+            sprite.anims.play('down', true);
+        }else if(keys.up.isDown){
+            sprite.anims.play('up', true);
         }else{
-            this.anims.play('man_idle',true);
-        }
-
+            sprite.anims.stop();
+               // If we were moving, pick and idle frame to use
+            //    if (prevVelocity.y < 0) sprite.setTexture("player", 0);
+            //    else sprite.setTexture("player", 46);
+        } 
     }
 
 }
