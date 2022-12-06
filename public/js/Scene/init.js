@@ -15,6 +15,9 @@ export default class Init extends Phaser.Scene {
     /** 메타버스 화면 랜더링에 사용될 모든 리소스를 정의 & 리소스 가져오는 preload */
     preload(){
         
+       // plugin load
+       this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
+
         // spriteSheet 
         this.load.spritesheet(I_SQUARE, "resource/sprite/hs_tiles_source.png",{frameWidth: 128,frameHeight: 64,}); // 광장
         this.load.spritesheet(I_CLASSROOM, "resource/sprite/tileset_school.png",{frameWidth: 128,frameHeight: 64,}); // 클래스룸 

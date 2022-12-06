@@ -13,6 +13,8 @@ export default class square extends Phaser.Scene{
 
   create() {
     console.log("create");
+
+    this.createJoystick();
     
     let collision = () => this.scene.start(ClassRoom);
 
@@ -82,4 +84,33 @@ export default class square extends Phaser.Scene{
   update() {
     this.player.update(); //player의 위치 갱신. 
   }
+
+
+
+    /** 
+     * joystick 생성을 위한 초기화 메서드
+     * joystick의 이벤트와 모양, 크기 등을 지정
+     */
+     createJoystick() {
+      console.log('create joyStick');
+      this.joystick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
+        x: 0,
+        y: 0,
+        radius: 50,
+        base: this.add.circle(0, 0, 50, 0x888888, 0.6).setDepth(1),
+        thumb: this.add.circle(0, 0, 25, 0xcccccc, 0.8).setDepth(1),
+        dir: '4dir',});
+        this.joystick.setVisible(false);
+        this.input.on('pointerup', () => {
+          if (!this.isInteracting) {
+            this.joystick.setVisible(false);
+          }});
+          this.input.on('pointerdown', (pointer) => {
+            if (!this.isInteracting) {
+              this.joystick.setPosition(pointer.x, pointer.y);
+              this.joystick.update(); // 캐릭터 이동시, 전역 Layer에서 인지해서 동작하도록 해야함.
+              this.joystick.setVisible(true);
+            }});
+          }
+
 }
