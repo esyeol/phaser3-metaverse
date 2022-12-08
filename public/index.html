@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="./output.css">
   <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
+   <!-- <script src="./plugin/rex-virtual-joystick-plugin.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script> -->
   
 </head>
@@ -136,6 +137,53 @@
         </div>
       </div>
     </div>
+<!--판서기능-->
+    <div id="board-menu" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true"> 
+      <div class="fixed inset-0  bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div
+          class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+          <div class="bg-white px-4 pt-1 pb-2 ">
+            <a href="javascript:void(0)" class="text-right text-3xl" onclick="closeModal()">&times;</a>
+            <div class="flex justify-center ">
+              <div class="mt-3 text-center ">
+                <h3 class="font-bold tracking-tight mb-2 sm:text-2xl text-indigo-600 leading-6"
+                  id="modal-title">Drawing</h3>
+                <div>
+                  <canvas id="drawing-board" class=" border-4 border-indigo-600 "></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 flex justify-center">
+            
+            <input id="line-width" class="" type="range" min="1" max="10" value="5">
+            <input id="select-color" class="bg-white hover:bg-gray-200 text-black text-center py-2 px-4 rounded-full h-14 w-14 inline-flex items-center" type="color">
+
+            <a href="javascript:void(0)" id="write" class="bg-white hover:bg-gray-200 text-black text-center py-2 px-4 rounded-full h-14 w-14 inline-flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+              </svg>              
+            </a>
+            
+            <a href="javascript:void(0)" id="destroy" class="bg-white hover:bg-gray-200 text-black text-center py-2 px-4 rounded-full h-14 w-14 inline-flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+              </svg>
+            </a>
+
+            <a href="javascript:void(0)" id="erase" class="bg-white hover:bg-gray-200 text-black text-center py-2 px-4 rounded-full h-14 w-14 inline-flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 7.5A2.25 2.25 0 017.5 5.25h9a2.25 2.25 0 012.25 2.25v9a2.25 2.25 0 01-2.25 2.25h-9a2.25 2.25 0 01-2.25-2.25v-9z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+<!--판서 끝-->
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pt-2 pb-3">

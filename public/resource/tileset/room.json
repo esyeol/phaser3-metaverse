@@ -99,6 +99,17 @@
                  "width":0,
                  "x":693.501454898157,
                  "y":387.972841901067
+                }, 
+                {
+                 "class":"",
+                 "height":56.950623982637,
+                 "id":12,
+                 "name":"board",
+                 "rotation":0,
+                 "visible":true,
+                 "width":336.147585458492,
+                 "x":230.580575149213,
+                 "y":118.068366793272
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -130,7 +141,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":11,
+ "nextobjectid":13,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

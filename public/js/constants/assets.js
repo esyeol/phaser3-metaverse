@@ -5,6 +5,7 @@ export const I_PLAYER = 'player';
 export const I_CLASSROOM = 'classroom';
 export const I_SQUARE = 'hs_tiles_source';
 export const I_PORTAL = 'protal';
+export const I_BOARD = 'board';
 
 //define map 
 export const M_SQUARE = 'map-square';

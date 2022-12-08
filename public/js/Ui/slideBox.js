@@ -24,7 +24,10 @@ const closeChat = () =>{
     chatMenu.classList.add('right-[-320px]');
 }
 
-
+// close canvas-board
+const closeModal =() => {
+    document.querySelector('#board-menu').classList.add("hidden");
+  }
 
 
 
