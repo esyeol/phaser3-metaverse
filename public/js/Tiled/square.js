@@ -40,7 +40,7 @@ export default class square extends Phaser.Scene {
     // player create
     this.player = new player(this, spawnPoint.x, spawnPoint.y, 0);
 
-    this.createSpeechBubble(portal.x, portal.y-70, 100, 50, '클래스룸에 입장해주세요');
+    this.createSpeechBubble(portal.x, portal.y-90, 100, 50, '클래스룸에 입장해주세요');
 
     // player & layer 별 충돌 지정.
     this.physics.world.addCollider(this.player.sprite, background);
