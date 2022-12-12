@@ -14,8 +14,6 @@ export default class square extends Phaser.Scene {
   create() {
     console.log("create");
 
-    this.createJoystick(); // joy stick 활성화. update 이벤트는 코드 뜯어 고쳐야함.
-
     let collision = () => this.scene.start(ClassRoom);
 
     const map = this.make.tilemap({ key: `${M_SQUARE}` });
@@ -37,8 +35,12 @@ export default class square extends Phaser.Scene {
     background.setCollisionByProperty({ collides: true });
     interactive.setCollisionByProperty({ collides: true });
 
+    this.createJoystick(); // joy stick 활성화. update 이벤트는 코드 뜯어 고쳐야함.
+    this.initKeyboard(); //joystick & keyboard로 캐릭터 움직임에 대한 정의를 해둔 메서드.
+    
+
     // player create
-    this.player = new player(this, spawnPoint.x, spawnPoint.y, 0);
+    this.player = new player(this, spawnPoint.x, spawnPoint.y, 'userName');
 
     this.createSpeechBubble(portal.x, portal.y-90, 100, 50, '클래스룸에 입장해주세요');
 
@@ -79,11 +81,25 @@ export default class square extends Phaser.Scene {
         faceColor: new Phaser.Display.Color(40, 39, 37, 255),
       });
     });
+
+        //keyboard event define.
+     this.input.keyboard.on('keyup', (event) => {
+      if (event.keyCode >= 37 && event.keyCode <= 40) {
+        this.player.stop();
+      }});
   }
 
   update() {
-    this.player.update(); //player의 위치 갱신.
+    // this.player.update(); //player의 위치 갱신.
+    this.player.update({
+      isUp: this.keyboard.isUp(),
+      isDown: this.keyboard.isDown(),
+      isLeft: this.keyboard.isLeft(),
+      isRight: this.keyboard.isRight(),
+  });
   }
+
+
 
   /**
    * joystick 생성을 위한 초기화 메서드
@@ -112,6 +128,27 @@ export default class square extends Phaser.Scene {
         this.joystick.setVisible(true);
       }
     });
+  }
+
+
+  initKeyboard() {
+    const cursorKeys = this.input.keyboard.createCursorKeys();
+  
+    this.keyboard = {
+        cursorKeys,
+        isUp: () => {
+            return this.joystick.up || cursorKeys.up.isDown;
+        },
+        isLeft: () => {
+            return this.joystick.left || cursorKeys.left.isDown;
+        },
+        isDown: () => {
+            return this.joystick.down || cursorKeys.down.isDown;
+        },
+        isRight: () => {
+            return this.joystick.right || cursorKeys.right.isDown;
+        },
+    };
   }
 
 
@@ -171,7 +208,4 @@ export default class square extends Phaser.Scene {
 
     content.setPosition(bubble.x + (bubbleWidth / 2) - (b.width / 2), bubble.y + (bubbleHeight / 2) - (b.height / 2));
 }
-
-
-
 }
