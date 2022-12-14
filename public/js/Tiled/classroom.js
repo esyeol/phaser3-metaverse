@@ -7,19 +7,15 @@ export default class classroom extends Phaser.Scene{
   constructor(){
     super(ClassRoom);
 }
-
 init(){
   console.log('init');
-
 }
-
 create(){
-
     // 스퀘어로 돌아가는 함수.
     let collision = () => this.scene.start(Square); 
 
-    // // test
-    const test = () => {
+    // // collisionSprite
+    const collisionSprite = () => {
         console.log('player collides!');
         const alarm = this.createSpeechBubble(board.x,board.y-50,140,50,'K 버튼을 눌러보세요');
 
@@ -43,7 +39,7 @@ create(){
     const location = this.physics.add.staticSprite(portal.x,portal.y,); 
     const boardLayer = this.physics.add.staticSprite(board.x+150,board.y+50);
 
-//    const board_test = this.physics.add.staticSprite(board.x, board.y, I_BOARD);
+//    const board_collisionSprite = this.physics.add.staticSprite(board.x, board.y, I_BOARD);
 //    const context_board = this.createSpeechBubble(board.x, board.y,40,50,'M 키를 눌러봐요');
 
     overhead.setDepth(40); // overhead layer 를 background와 interactive layer 위에 배치해서 화면상에 보이는 View가 어색하지 않도록 지정.
@@ -72,11 +68,11 @@ create(){
     // player & layer 별 충돌 지정.
     this.physics.world.addCollider(this.player.sprite, background); // tiled 에서 지정한 collides 충돌영역과 player object간 충돌 효과.
     this.physics.world.addCollider(this.player.sprite, interactive); // tiled 에서 지정한 collides 충돌영역과 player object간 충돌 효과.
-    // this.physics.add.collider(this.player.sprite,board_test);
+    // this.physics.add.collider(this.player.sprite,board_collisionSprite);
 
         // static layer로 지정한 portal 충돌시 classroom 으로 scene 전환.
     this.physics.add.collider(this.player.sprite,location,collision,undefined,this); 
-    this.physics.add.overlap(this.player.sprite,boardLayer,test,undefined,this);
+    this.physics.add.overlap(this.player.sprite,boardLayer,collisionSprite,undefined,this);
     // this.cameras.main.startFollow(this.player.sprite); // camera follow.
 
     // 디버깅 모드
