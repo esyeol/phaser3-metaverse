@@ -1,156 +1,70 @@
+import baseSene from "../../Utility/baseSene.js";
 import {I_PLAYER, I_CLASSROOM, I_SQUARE, I_PORTAL, M_SQUARE} from "../constants/assets.js";
 import {Square,ClassRoom} from "../constants/scenes.js";
-import player from "../Object/player.js";
 
-export default class square extends Phaser.Scene {
+export default class square extends baseSene {  
+
   constructor() {
     super(Square);
   }
 
-  preload() {
-    console.log("preload");
+  // 캐릭터에 대한 객체 선언은 여기서 진행
+  init(data) {
+    console.log(`data: ${data}`);
+    // this.player = new Player(this, this.key, this.getPosition(data));
+    super.init(this.getPosition(data));
+    console.log(`data position : ${this.getPosition(data)}`);  
   }
 
+
+  /**baseSene 에서 상속받아 캐릭터 생성 및 맵 말단 생성.*/
   create() {
     console.log("create");
 
-    let collision = () => this.scene.start(ClassRoom);
+    super.create(M_SQUARE,I_SQUARE);
+   
+  }
 
-    const map = this.make.tilemap({ key: `${M_SQUARE}` });
-    const tileset = map.addTilesetImage("hs_tiles_source",`${I_SQUARE}`,32,32,0,0);
+  registerCollision() {
+    console.log('regiseterCollision');
 
-    // collision layer define
-    const spawnPoint = map.findObject("object",(obj) => obj.name === "spawn_point");
-    const portal = map.findObject("teleport", (obj) => obj.name === "portal");
-
-    /**
-     * tileMap layer define
-     * tiledGUI 툴에서 지정한 layer에서 지정한 nameSpace로 각 layer를 나눈다.
-     * */
-    const background = map.createLayer("background", tileset, 0, 0);
-    const interactive = map.createLayer("interactive", tileset, 0, 0);
-    const location = this.physics.add.staticSprite(portal.x,portal.y,I_PORTAL); // cloassroom으로 이동할 좌표값을 sprite 객체로 지정.
-
-    // 각 layer 별 충돌 지정부분 활성화.
-    background.setCollisionByProperty({ collides: true });
-    interactive.setCollisionByProperty({ collides: true });
-
-    this.createJoystick(); // joy stick 활성화. update 이벤트는 코드 뜯어 고쳐야함.
-    this.initKeyboard(); //joystick & keyboard로 캐릭터 움직임에 대한 정의를 해둔 메서드.
-    
-
-    // player create
-    this.player = new player(this, spawnPoint.x, spawnPoint.y, 'userName');
-
-    this.createSpeechBubble(portal.x, portal.y-90, 100, 50, '클래스룸에 입장해주세요');
+    let player = this.player.players[this.player.socket.id];
+  
+    this.createSpeechBubble(this.portal.x, this.portal.y-90, 100, 50, '클래스룸에 입장해주세요');
 
     // player & layer 별 충돌 지정.
-    this.physics.world.addCollider(this.player.sprite, background);
-    this.physics.world.addCollider(this.player.sprite, interactive);
+    this.physics.world.addCollider(player, this.background);
+    this.physics.world.addCollider(player, this.interactive);
 
-    // static layer로 지정한 portal 충돌시 classroom 으로 scene 전환.
-    this.physics.add.collider(this.player.sprite,location,collision,undefined,this);
+    
+  //   this.add.text(16, 16, "press 'D' you can use debug mode", {
+  //     font: "18px monospace",
+  //     fill: "#000000",
+  //     padding: { x: 20, y: 10 },
+  //     backgroundColor: "#ffffff", // #00ff0000 -> rgb 투명.
+  //   })
+  //   .setScrollFactor(0);
 
-    // this.cameras.main.startFollow(this.players.sprite); // camera follow.
+  // // debuging mode -> phaser에서 제공하는 디버깅 함수(테스트에서만 사용)
+  // this.input.keyboard.once("keydown-D", (event) => {
+  // this.physics.world.createDebugGraphic();
 
-    // canvas 내부에 text 문구 띄우기 위한 구문. 테스트나 사용법 안내할 때, 주로 사용.
-    this.add.text(16, 16, "press 'D' you can use debug mode", {
-        font: "18px monospace",
-        fill: "#000000",
-        padding: { x: 20, y: 10 },
-        backgroundColor: "#ffffff", // #00ff0000 -> rgb 투명.
-      })
-      .setScrollFactor(0);
+  //   // Create worldLayer collision graphic above the player, but below the help text
+  //   const graphics = this.add.graphics().setAlpha(0.75).setDepth(20);
 
-    // debuging mode -> phaser에서 제공하는 디버깅 함수(테스트에서만 사용)
-    this.input.keyboard.once("keydown-D", (event) => {
-      this.physics.world.createDebugGraphic();
+  //   this.background.renderDebug(graphics, {
+  //     tileColor: null,
+  //     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
+  //     faceColor: new Phaser.Display.Color(40, 39, 37, 255),
+  //   });
 
-      // Create worldLayer collision graphic above the player, but below the help text
-      const graphics = this.add.graphics().setAlpha(0.75).setDepth(20);
-
-      background.renderDebug(graphics, {
-        tileColor: null,
-        collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
-        faceColor: new Phaser.Display.Color(40, 39, 37, 255),
-      });
-
-      interactive.renderDebug(graphics, {
-        tileColor: null,
-        collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
-        faceColor: new Phaser.Display.Color(40, 39, 37, 255),
-      });
-    });
-
-        //keyboard event define.
-     this.input.keyboard.on('keyup', (event) => {
-      if (event.keyCode >= 37 && event.keyCode <= 40) {
-        this.player.stop();
-      }});
-  }
-
-  update() {
-    // this.player.update(); //player의 위치 갱신.
-    this.player.update({
-      isUp: this.keyboard.isUp(),
-      isDown: this.keyboard.isDown(),
-      isLeft: this.keyboard.isLeft(),
-      isRight: this.keyboard.isRight(),
-  });
-  }
-
-
-
-  /**
-   * joystick 생성을 위한 초기화 메서드
-   * joystick의 이벤트와 모양, 크기 등을 지정
-   */
-  createJoystick() {
-    console.log("create joyStick");
-    this.joystick = this.plugins.get("rexvirtualjoystickplugin").add(this, {
-      x: 0,
-      y: 0,
-      radius: 50,
-      base: this.add.circle(0, 0, 50, 0x888888, 0.6).setDepth(1),
-      thumb: this.add.circle(0, 0, 25, 0xcccccc, 0.8).setDepth(1),
-      dir: "4dir",
-    });
-    this.joystick.setVisible(false);
-    this.input.on("pointerup", () => {
-      if (!this.isInteracting) {
-        this.joystick.setVisible(false);
-      }
-    });
-    this.input.on("pointerdown", (pointer) => {
-      if (!this.isInteracting) {
-        this.joystick.setPosition(pointer.x, pointer.y);
-        this.joystick.update();
-        this.joystick.setVisible(true);
-      }
-    });
-  }
-
-
-  initKeyboard() {
-    const cursorKeys = this.input.keyboard.createCursorKeys();
-  
-    this.keyboard = {
-        cursorKeys,
-        isUp: () => {
-            return this.joystick.up || cursorKeys.up.isDown;
-        },
-        isLeft: () => {
-            return this.joystick.left || cursorKeys.left.isDown;
-        },
-        isDown: () => {
-            return this.joystick.down || cursorKeys.down.isDown;
-        },
-        isRight: () => {
-            return this.joystick.right || cursorKeys.right.isDown;
-        },
-    };
-  }
-
+  //   this.interactive.renderDebug(graphics, {
+  //     tileColor: null,
+  //     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
+  //     faceColor: new Phaser.Display.Color(40, 39, 37, 255),
+  //   });
+  // });
+}
 
     /**
    * sprite 에 bubble text 추가하는 메서드 
@@ -208,4 +122,11 @@ export default class square extends Phaser.Scene {
 
     content.setPosition(bubble.x + (bubbleWidth / 2) - (b.width / 2), bubble.y + (bubbleHeight / 2) - (b.height / 2));
 }
+
+
+// this.spawnPoint 로 나중에 테스트.
+getPosition(data) {
+      return { x:800, y:800, direction: 'down' };
+}
+
 }
