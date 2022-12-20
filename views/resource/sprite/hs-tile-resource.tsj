@@ -1,0 +1,14 @@
+{ "columns":8,
+ "image":"..\/..\/..\/..\/..\/..\/Downloads\/hs-tile-resource.png",
+ "imageheight":32,
+ "imagewidth":256,
+ "margin":0,
+ "name":"hs-tile-resource",
+ "spacing":0,
+ "tilecount":8,
+ "tiledversion":"1.9.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.9"
+}

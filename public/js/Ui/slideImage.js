@@ -1,4 +1,7 @@
 const menu = document.getElementById("menu");
+const enterBtn = document.getElementById('enter-metaverse');
+const enterClass = document.getElementById('enter-classroom');
+const enter2Class = document.getElementById('enter-2-classroom');
 
 // set the default active slide to the first one
 let slideIndex = 1;
@@ -81,17 +84,38 @@ const showMenu = () => {
 };
 
 const hideMenu = () => {
-    // menu.classList.add("hidden");
     closeModal();
     console.log(`url-> ${imgPath}`);
     document.getElementById('selAvator').src=imgPath;
-    const enterBtn = document.getElementById('enter-metaverse');
     enterBtn.classList.remove('hidden');
     enterBtn.classList.add('inline-block');
-
+    enterClass.classList.remove('hidden');
+    enterClass.classList.add('inline-block');
+    enter2Class.classList.remove('hidden');
+    enter2Class.classList.add('inline-block');
 };
 
 // x 버튼 클릭시 modal 닫는 메서드.
 const closeModal =() => {
   menu.classList.add("hidden");
 }
+
+/**
+ * 메타버스 입장하기 btn 클릭시 square로 입장하는 메서드.
+ * backpress 눌렀을 때, index.html 스택에서 삭제여부는 고려. 
+*/
+enterBtn.addEventListener('click',()=>{
+  location.href="/square?key=HS";
+});
+
+/**
+ * 메타버스 입장하기 btn 클릭시 square로 입장하는 메서드.
+ * backpress 눌렀을 때, index.html 스택에서 삭제여부는 고려. 
+*/
+enterClass.addEventListener('click',()=>{
+  location.href="/square?key=STUDY&id=bbbb";
+});
+
+enter2Class.addEventListener('click',()=>{
+  location.href="/square?key=STUDY&id=aaaa";
+})

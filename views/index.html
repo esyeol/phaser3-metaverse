@@ -4,10 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>캐릭터 선택</title>
   <link rel="stylesheet" href="./output.css">
 </head>
-
 <body>
   <div class="isolate flex justify-center items-center bg-white">
     <div class="absolute inset-x-0 top-[-4rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
@@ -39,6 +38,9 @@
               <div class="mt-8 flex gap-x-4 sm:justify-center">
                 <img class="rounded-xl" id="selAvator" src="https://via.placeholder.com/400" alt="default">
               </div>
+              <!--POST TEST-->
+              <button id="postTest" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">JWT</button>
+              
               <div class="mt-8 flex gap-x-4 sm:justify-center">
                 <button onclick="showMenu()"
                   class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
@@ -50,6 +52,12 @@
                 <button id="enter-metaverse"
                   class=" hidden rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">메타버스
                   입장하기</button>
+                <button id="enter-classroom"
+                class=" hidden rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">클래스룸
+                입장하기</button>
+                <button id="enter-2-classroom"
+                class=" hidden rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">클래스룸2
+                입장하기</button>
               </div>
             </div>
             <div
@@ -138,6 +146,7 @@
   </section>
   </main>
   <script src="js/Ui/slideImage.js"></script>
+  <script src="js/Util/postTest.js"></script>
 </body>
 
 </html>

@@ -2,19 +2,18 @@ import {UP,DOWN,LEFT,RIGHT} from "../constants/direction.js";
 import {I_PLAYER} from "../constants/assets.js";
 import connectUser from "../Ui/connectUser.js";
 import disconnectUser from "../Ui/disconnectUser.js";
+import test from "../Ui/test.js"; //test
 
 class Players {
     
-    constructor(scene, room, position) {
+    constructor(scene, room, position,hs) {
         this.scene = scene;
         this.room = room;
         this.position = position;
-        this.socket = io('ws://x.xx.xxx.xx:8080',{cors: { origin: '*' }});
-
+        // this.socket = io('ws://3.39.249.46:8080',{cors: { origin: '*' }});
+        this.socket = io('ws://3.39.249.46:8080/'+hs,{cors: { origin: '*' }}); 
         this.players = {};
         this.id;
-        console.log(this.socket.id);
-        // this.playerId;
     }
     
     create() {
@@ -101,6 +100,7 @@ class Players {
         this.players[id].anims.play(direction);
         this.players[id].anims.stop();
         connectUser(nickname);
+        test(nickname,id);
         if(Object.keys(this.players)==id){
             this.id=id;
             console.log(this.id);
@@ -167,9 +167,20 @@ class Players {
     registerChat(socket) {
         let chat = document.getElementById('chat');
         let sendBtn = document.getElementById('submitChat');
+        let whispher = document.getElementById('whisperChat');
+        let getList = document.getElementById('n-user-list');
+        let whispherValue;
+
+    //    function changeValue(target) {
+    //         whispherValue=target.value;
+    //     }
+        getList.addEventListener('change',(target)=>{
+            let test = document.getElementById('n-user-list');
+            whispherValue = (test.options[test.selectedIndex].value);
+            console.log(`변경여여여엉 ${whispherValue}`);
+        });
 
         function sendChat(){
-
             let message = document.getElementById('msg');
             socket.emit('CHAT',message.value);
             chat.innerHTML += `나: ${message.value}<br>`;
@@ -177,13 +188,34 @@ class Players {
             message.value='';
         }
 
+        function sendWhisper() {
+            let message = document.getElementById('msg');
+            console.log(`수신자 id : ${whispherValue}`);
+            console.log(`변경여여여엉 ${whispherValue}`);
+            socket.emit('WHISPER',message.value,whispherValue);
+            chat.innerHTML +=`<p class="text-orange-300">(귓속말)나: ${message.value}</p><br>`;
+            // `(귓속말)나: ${message.value}<br>`;
+            chat.scrollTo(0, chat.scrollHeight);
+            message.value='';
+        }
+
         sendBtn.addEventListener('click',sendChat);
+        whispher.addEventListener('click',sendWhisper);
 
         socket.on('CHAT', (msg,id) => {
             console.log(`${msg} ${id}`);
             chat.innerHTML += `${id}: ${msg}<br>`;
             chat.scrollTo(0, chat.scrollHeight);
         });
+
+        socket.on('WHISPER', (msg,id) => {
+            console.log(`${msg} ${id}`);
+            chat.innerHTML += `<p class="text-orange-300">(귓속말): ${msg}</p><br>`;
+            // `(귓속말)${id}: ${msg}<br>`;
+            chat.scrollTo(0, chat.scrollHeight);
+        });
+
+
     }
 }
 

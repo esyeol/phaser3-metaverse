@@ -1,5 +1,6 @@
 import Player from "../js/Object/player.js";
 import { I_SQUARE, M_SQUARE,I_PLAYER, I_PORTAL } from "../js/constants/assets.js";
+import getQueryString from "../js/Util/getQuery.js";
 export default class baseSene extends Phaser.Scene{
 
     constructor(key){
@@ -10,7 +11,8 @@ export default class baseSene extends Phaser.Scene{
     // player obj 생성 & 위치 & scene 전환에 필요한 key 값등을 정의. 
     init(position){
         this.scene.setVisible(false, this.key);
-        this.player = new Player(this, this.key, position);
+        // this.player = new Player(this, this.key, position,"HS"); // Socket Name Space 구분을 위해 임의로 지정.
+        this.player = new Player(this, this.key, position,getQueryString('key'));
         this.transition = true;
         this.input.keyboard.removeAllListeners();
         this.background;
