@@ -105,7 +105,7 @@ const closeModal =() => {
  * backpress 눌렀을 때, index.html 스택에서 삭제여부는 고려. 
 */
 enterBtn.addEventListener('click',()=>{
-  location.href="/square?key=HS";
+  location.href="/square?key=HS&id=square";
 });
 
 /**
