@@ -55,7 +55,8 @@ router.post('/',(req,res)=>{
     //     console.log(`토큰 정보 : ${payLoad}`);
     // }
 
-    res.json(req.body);
+    // res.json(req.body);
+    res.json({"state":"success"});
     // res.setHeader("Set-Cookie",`token=${token}`);
 });
 
